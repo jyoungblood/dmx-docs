@@ -26,3 +26,5 @@ pnpm-debug.log*
 
 deploy.sh
 .vscode/
+
+_ref/*

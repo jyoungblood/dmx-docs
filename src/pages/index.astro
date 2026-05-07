@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
@@ -9,9 +10,138 @@ import "../styles/global.css";
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>datamix studio</title>
+    <title>Datamix - Content Modeling Studio for Cloudflare</title>
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
   </head>
-  <body>
-    <h1 class="text-3xl font-bold">datamix studio</h1>
+  <body class="bg-white text-black antialiased">
+    <div class="relative min-h-screen overflow-hidden">
+      <div
+        class="pointer-events-none fixed inset-0 z-0 opacity-[0.025]"
+        aria-hidden="true"
+        style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E&quot;); background-repeat: repeat; background-size: 128px 128px;"
+      >
+      </div>
+
+      <main
+        class="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col px-8 py-20 sm:px-12 sm:py-28"
+      >
+        <header class="mb-12 sm:mb-16">
+          <span
+            class="[font-family:var(--font-display)] text-[0.7rem] font-extrabold uppercase tracking-[0.18em]"
+          >
+            Datamix Studio
+          </span>
+        </header>
+
+        <section class="mb-16 sm:mb-20">
+          <h1
+            class="max-w-xl [font-family:var(--font-display)] text-3xl font-extrabold leading-[1.08] tracking-[-0.015em] text-black sm:text-4xl md:text-5xl"
+          >
+            The 1-click content studio built for Cloudflare.
+          </h1>
+        </section>
+
+        <section class="mb-16 sm:mb-20">
+          <span class="mb-8 block h-[1.5px] w-8 bg-[#80EFD5]"></span>
+          <div class="mb-8 space-y-2 text-[1.05rem] leading-[1.75] font-light text-neutral-700">
+            <p>Datamix is a visual content modeling environment that runs entirely in the browser.</p>
+            <p>Define your data structures, and a REST JSON API is generated automatically.</p>
+            <p>No configuration files, no local dependencies, no build pipeline.</p>
+          </div>
+
+          <div class="space-y-3 text-sm font-light text-neutral-600">
+            <p class="feature-item pl-6">
+              <strong class="">Visual content modeling</strong> - define
+              schemas directly in the UI
+            </p>
+            <p class="feature-item pl-6">
+              <strong class="">Auto-generated JSON API</strong>
+              ready to consume immediately
+            </p>
+            <p class="feature-item pl-6">
+              <strong class="">Built-in media library</strong> for asset
+              management
+            </p>
+            <p class="feature-item pl-6">
+              <strong class="">Role-based access control</strong> for teams
+            </p>
+            <p class="feature-item pl-6">
+              <strong class="">Deploys to Cloudflare</strong> in one click
+              - zero local setup required
+            </p>
+          </div>
+        </section>
+
+        <section class="mb-16 sm:mb-20">
+          <span class="mb-8 block h-[1.5px] w-8 bg-[#80EFD5]"></span>
+          <p
+            class="mb-4 text-[0.65rem] font-medium uppercase tracking-[0.2em] text-neutral-500"
+          >
+            <span class="status-dot inline-block align-middle"></span>
+            Status
+          </p>
+          <p class="text-sm leading-relaxed font-light text-neutral-600">
+            Datamix is currently in active development. <br />More details,
+            documentation, and a public release are on the way.
+          </p>
+        </section>
+
+        <section class="mb-24 sm:mb-32">
+          <span class="mb-8 block h-[1.5px] w-8 bg-[#80EFD5]"></span>
+          <p class="text-sm leading-relaxed font-light text-neutral-600">
+            Interested in early access or collaboration? <br />Get in touch: 
+            <a
+              class="ml-1 underline decoration-[#80EFD5] decoration-2 underline-offset-[3px] transition-colors hover:decoration-black"
+              href="mailto:jonathan.youngblood@gmail.com"
+            >
+              jonathan.youngblood@gmail.com
+            </a>
+          </p>
+        </section>
+      </main>
+
+      <footer
+        class="relative z-10 mx-auto w-full max-w-2xl border-t border-neutral-100 px-8 py-8 text-center sm:px-12"
+      >
+        <p class="text-xs tracking-wider text-neutral-400">© Datamix 2026</p>
+      </footer>
+    </div>
+
+    <style>
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        background: #80efd5;
+        animation: pulse 2.5s ease-in-out infinite;
+      }
+
+      .feature-item {
+        position: relative;
+      }
+
+      .feature-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.78em;
+        width: 0.85rem;
+        height: 2.5px;
+        border-radius: 999px;
+        background: #80efd5;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+    </style>
   </body>
 </html>
