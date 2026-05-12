@@ -7,6 +7,21 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   fonts: [
     {
+      provider: fontProviders.local(),
+      name: 'Haskoy',
+      cssVariable: '--font-haskoy',
+      fallbacks: ['sans-serif'],
+      options: {
+        variants: [
+          {
+            weight: '100 800',
+            style: 'normal',
+            src: ['./src/assets/fonts/Haskoy-variable.woff2']
+          }
+        ]
+      }
+    },
+    {
       name: 'Zalando Sans SemiExpanded',
       cssVariable: '--font-display',
       provider: fontProviders.google(),

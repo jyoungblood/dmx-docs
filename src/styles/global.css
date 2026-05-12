@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  /* Align with haskoy.ertekinn.com section rules / meta text */
+  --page-rule: #e8e8e8;
+  --page-meta: #666666;
+}
+
 @theme inline {
   --font-sans: var(--font-body);
+}
+
+html {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-feature-settings: "liga" 1, "kern" 1;
 }
