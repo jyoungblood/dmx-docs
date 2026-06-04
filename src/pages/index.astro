@@ -16,15 +16,19 @@ import { Font } from "astro:assets";
   </head>
   <body class="bg-white text-black antialiased">
     <div class="relative min-h-screen overflow-hidden">
-      <div
-        class="pointer-events-none fixed inset-0 z-0 opacity-[0.025]"
-        aria-hidden="true"
-        style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E&quot;); background-repeat: repeat; background-size: 128px 128px;"
-      >
-      </div>
 
+      <img
+        src="/dmx-hero.webp"
+        alt="Datamix interface preview"
+        class="hero-image pointer-events-none absolute right-0 bottom-0 z-1 h-auto w-96 lg:fixed"
+        loading="eager"
+        decoding="async"
+      />
+
+      <div class="page-layout relative z-10 min-h-screen">
+        <div class="main-column flex min-h-screen flex-col items-center">
       <main
-        class="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col px-8 py-20 sm:px-12 sm:py-28"
+        class="content-panel flex flex-1 flex-col py-20 sm:py-28"
       >
         <header class="mb-12 sm:mb-16">
           <span
@@ -87,7 +91,7 @@ import { Font } from "astro:assets";
           </p>
         </section>
 
-        <section class="mb-24 sm:mb-32">
+        <section class="mb-64 lg:mb-32">
           <span class="mb-8 block h-[1.5px] w-8 bg-[#80EFD5]"></span>
           <p class="text-sm leading-relaxed font-light text-neutral-600">
             Interested in early access or collaboration? <br />Get in touch: 
@@ -102,11 +106,67 @@ import { Font } from "astro:assets";
       </main>
 
       <footer
-        class="relative z-10 mx-auto w-full max-w-2xl border-t border-neutral-100 px-8 py-8 text-center sm:px-12"
+        class="content-panel md:border-t border-neutral-200 py-8 text-left"
       >
         <p class="text-xs tracking-wider text-neutral-400">© Datamix 2026</p>
       </footer>
+        </div>
+        <div class="hero-spacer" aria-hidden="true"></div>
+      </div>
     </div>
+
+    <style is:global>
+      :root {
+        /* ~8% narrower than the original 58vw / 560px hero */
+        --hero-width: clamp(240px, 50vw, 500px);
+      }
+
+
+      /* Left column = viewport minus hero; content centered inside that column only */
+      .page-layout {
+        display: grid;
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .main-column {
+        min-width: 0;
+      }
+
+      .hero-spacer {
+        display: none;
+        pointer-events: none;
+      }
+
+      .content-panel {
+        box-sizing: border-box;
+        width: min(100%, 42rem);
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      @media (min-width: 640px) {
+        .content-panel {
+          padding-left: 3rem;
+          padding-right: 3rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero-image {
+          width: var(--hero-width);
+          max-width: var(--hero-width);
+        }
+
+        .page-layout {
+          grid-template-columns: minmax(0, 1fr) var(--hero-width);
+        }
+
+        .hero-spacer {
+          display: block;
+        }
+      }
+    </style>
 
     <style>
       .status-dot {
